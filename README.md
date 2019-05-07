@@ -11,5 +11,5 @@ Instructions
 Examples
 
 * [Cumberland Falls](https://vimeo.com/329365129)
-* [Courthouse Rock in the Red River Gorge](https://vimeo.com/305590763)
+* [Courthouse Rock in the Red River Gorge](https://vimeo.com/334746353)
 * [Louisville](https://vimeo.com/301603400)
