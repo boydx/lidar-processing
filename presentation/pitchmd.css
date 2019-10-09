@@ -1,0 +1,27 @@
+a {
+    /* text-transform:capitalize; */
+    text-shadow: 0px 0px 1px #000000, 1px 1px 0px #030202;
+    /* color: #ffe862; */
+}
+
+/* 2px 2px 1px #222, 3px 3px 1px #333 */
+
+/* a:hover { 
+    /* text-transform:capitalize; 
+    /* text-shadow: 0px 0px 1px red, 1px 1px 1px orange,2px 2px 1px yellow, 3px 3px 1px green, 4px 4px 1px blue, 5px 5px 1px indigo,6px 6px 1px violet; 
+/* } */
+
+.reveal h1, .reveal h2, .reveal h3 {
+    text-shadow: 2px 2px 4px #000;
+}
+
+.reveal .slides section>* {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.reveal .slides ul {
+    margin: 0 0 0 80px;
+    opacity: 0.9;
+}

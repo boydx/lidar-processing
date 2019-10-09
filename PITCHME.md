@@ -1,17 +1,20 @@
 ---?image=presentation/img/st-b.svg
 <h3 style="color:rgba(255,255,255,0.2)">Presentation @</h3>
-## boyd.xyz/u
-### [repo](https://github.com/boydx/weather-stations) 
-current [map](https://www.outragegis.com/weather/goes16/map/)
+## boyd.xyz/k
+### [repo](https://github.com/boydx/lidar-processing) 
 
----?image=https://farm6.staticflickr.com/5688/23373057330_7c3e0cba0c_h.jpg&opacity=30
-## Weather mapping in 
-# HD
-### a season of Kentucky sunsets
+---?image=presentation/img/nmp-uky.png
+
+---?image=presentation/img/pot.jpg&opacity=20
+## Boyd Shearer 
+### Lecturer, Mapping & GIS
+([video](https://newmapsplus.as.uky.edu/video/introduction-new-maps-plus-0))
 
 
----?image=presentation/img/p004.jpg&opacity=20
-## Open source CLI mapping 
+---?image=https://outrageGIS.com/gorge/animations/sun.gif&opacity=50
+# Lidar
+### Processing and visualization techniques in 
+## ArcGIS Pro
 
 ---
 ## Outline

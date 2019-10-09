@@ -1,7 +1,18 @@
 background-size : cover
-theme : night
-footnote : "Weather stations"
-theme-override : presentation/custom.css
-# code-line-numbers : true
+footnote : "Lidar processing with ArcGIS Pro"
 layout : center-left
-# transition : zoom
+
+
+theme            : template
+
+theme-background : [ "linear-gradient(#000, #232629)" ]
+theme-headline   : [ "Montserrat", "white", "none" ]
+theme-byline     : [ "Montserrat", "#white", "none" ]
+theme-text       : [ "Lato", "#F5FFFA", "none" ]
+theme-links      : [ "#FFD700", "#ffe862" ]
+theme-code       : [ "Victor Mono" ] # Victor Mono Italic
+theme-controls   : [ "#eee" ]
+theme-margins    : [ "0px", "15px" ]
+highlight        : hybrid
+
+theme-override : presentation/pitchmd.css
