@@ -217,21 +217,17 @@ pcregrep -M -A 90 "<style>" Smokies.txt | sed 's_<html><head>__g' | sed 's_font-
 # Demo?
 
 ---
-## Python
-@[25-30]
-@[32-36]
-@[38-42]
-@[44-48]
-@[60-63]
-@[78-89]
-@[93-108]
-@[138-143]
-@[147]
-@[172]
-@[178]
-@[202]
+# Python
+
+---
+@[1-2]
+@[3-4]
+@[5-6]
+@[7-8]
+@[9-10]
+@[11-12]
 ```python
-# Import ArcGIS package
+# IMPORT modules
 import arcpy
 # Subprocess allows us to issue commands on the command line
 import subprocess
@@ -241,53 +237,175 @@ from urllib.request import urlretrieve
 from zipfile import ZipFile
 # Utility to compress folder
 import shutil
-# pandas to view table and possibly analyze data in the future?
+# Examine point cloud stats
 import pandas as pd
 ```
-
+---
+@[2]
+@[3-4]
+@[5]
+@[6]
 ```python
-# Directory for project 
-# Got to use double backslash because of other modules
+# SET custom Variables
 out_directory = "x:\\BoydsGIS\\3DScenes\\"
+project = "kamp_cp" # Project directory name
+point_name = "cp_pt" # Name of point layer
+buffer_distance = 1000 # Distance in feet from feature
+las_ground = [2] # Codes for elevation model
+```
 
-# Project name - creates a folder in project directoru
-project = "kamp_cp"
-
-# Name of point layer and buffer distance from point
-point_name = "cp_pt"
-buffer_distance = 1000
-
-# Output geodatabase name
-out_geodb = "workspace.gdb"
-
-# Locations of index grids
+---
+@[2]
+@[3-5]
+@[6]
+@[7-13]
+```python
+# SET Program Variables
+out_geodb = "workspace.gdb"  # Output geodatabase name
 las_grid = "x:\\BoydsGIS\\data\\download_grids.gdb\\KY_5k_PointClound_grid"
 naip_grid = "x:\\BoydsGIS\\data\\download_grids.gdb\\Kentucky_10K_NAIP"
-
-# NAIP files have prefix
-naip_prefix = "ky_2ft_naip_2016_"
-
-# Point the script to the directory with the laszip64.exe
+naip_prefix = "ky_2ft_naip_2016_" # NAIP files have prefix
 las_tools = ["x:\\BoydsGIS\\data\\lidar\\", "laszip64.exe"]
-
 # Downloads folder
 downloads = f'{out_directory}{project}\\downloads\\'
 lidar = f'{out_directory}{project}\\lidar\\'
 lidar_extract = f'{out_directory}{project}\\lidar_extract\\'
 lidar_color = f'{out_directory}{project}\\lidar_color\\'
-
-# LAS dataset name, temp list, and class codes
+# LAS dataset name and location
 las_dataset = f'{lidar}{project}.lasd'
-las_names = []
+```
+---
+@[2]
+@[3-4]
+@[5]
+@[7]
+```python
+# Create folders and copy laszip64.exe
+folders = [f'{out_directory}{project}', downloads, lidar, lidar_extract, lidar_color]
+for folder in folders:
+    subprocess.run(f"mkdir {folder}", shell=True)
+completed = subprocess.run(f'dir {out_directory}{project}', shell=True, stdout=subprocess.PIPE)
+print(completed.stdout.decode('UTF-8'))
+completed = subprocess.run(f'copy {las_tools[0]}{las_tools[1]} {downloads}', shell=True, stdout=subprocess.PIPE)
+print(completed.stdout.decode('UTF-8'))
+```
+---
+@[2]
+@[8]
+```python
+arcpy.env.overwriteOutput = True # Overwrite it!
+arcpy.CreateFileGDB_management(f'{out_directory}{project}', out_geodb)
+out_path = f'{out_directory}{project}\\{out_geodb}' 
+arcpy.env.workspace = out_path
+
+# Create empty feature layer
+spatial_reference = arcpy.Describe(las_grid).spatialReference
+arcpy.CreateFeatureclass_management(out_path, point_name, "POINT", "#", "#", "#", spatial_reference)
 ```
 ---?image=presentation/img/p011.jpg&opacity=20
-## Current view
+## Open ArcGIS Pro
 @ul[squares]
-* [Updated](https://www.outragegis.com/weather/goes16/map) every 15 minutes
-* Make GeoTIFFs available
-* Pause at time of [Kentucky's sunset](https://www.outragegis.com/weather/goes16/sunset/190214) 💙
+* Create a feature that locates AOI
+* Point, line, or Polygon
+* 🙏💙
 @ulend
 
+---
+@[2]
+@[5]
+```python
+# Buffer point
+arcpy.Buffer_analysis(point_name, f'{point_name}_{buffer_distance}ft', buffer_distance)
+
+# Create a temp layer to find which LAS files to download
+arcpy.Intersect_analysis ([f'{point_name}_{buffer_distance}ft', las_grid], "temp")
+```
+---
+@[2]
+@[5]
+```python
+# Find URLs and download them and use laszip64.exe to convert 
+cursor = arcpy.da.SearchCursor("temp", ['ftppath', 'LASVersion', 'Year'])
+i = 0
+las_names = []
+for row in cursor:
+    url = row[0]
+    name = url[-12:]
+    las_names.append(f'{lidar}{url[-12:-4]}.las')
+    print(las_names[i])
+    urlretrieve(url, f'{downloads}{name}')
+    print(f'{las_tools} -i {downloads}{name} -o {las_names[i]}')
+    completed = subprocess.run(f'{las_tools} -i {downloads}{name} -o {las_names[i]}', shell=True, stdout=subprocess.PIPE)
+    print(completed.stdout.decode('UTF-8'))
+    i += 1
+```
+
+---
+```python
+# Create LAS dataset
+arcpy.CreateLasDataset_management (las_names, las_dataset, "#", "#", spatial_reference, True, True)
+
+arcpy.LasDatasetStatistics_management (las_dataset, "#", f'{out_directory}{project}\\stats.csv', "#", "#", "#")
+with open(f'{out_directory}{project}\\stats.csv', encoding='utf-8') as csv:
+    reader = pd.read_csv(csv)
+    # Create pandas data frame that
+    pdData = pd.DataFrame(reader)
+# View point cloud stats
+pdData[pdData["Category"] == "ClassCodes"]
+```
+
+---
+```python
+# default ground classes
+las_ground = [2]
+
+# Filter for ground points and create DEM and hillshade
+arcpy.MakeLasDatasetLayer_management (las_dataset, f'{lidar}ground', las_ground)
+arcpy.LasDatasetToRaster_conversion (f'{lidar}ground', f'{project}_dem_5ft', "#", "#", "#", "#", 5)
+arcpy.HillShade_3d(f'{project}_dem_5ft', f'{project}_hillshade', 270, 55)
+```
+
+---
+```python
+# Create a temp layer to find which NAIP files to download
+arcpy.RasterDomain_3d (f'{project}_hillshade', 'domain', 'POLYGON')
+arcpy.Intersect_analysis (['domain', naip_grid], "temp")
+# Find URLs, download them and extract 
+cursor = arcpy.da.SearchCursor("temp", ['ftppath16', 'TileName'])
+i = 0
+naip_names = []
+for row in cursor:
+    url = row[0]
+    name = row[1]
+    naip_names.append(name)
+    print(naip_names)
+    urlretrieve(url, f'{downloads}{name}.zip')
+    with ZipFile(f'{downloads}{name}.zip', 'r') as zip: 
+        zip.extractall(f'{downloads}{name}') 
+    arcpy.CopyRaster_management (f'{downloads}{name}\\{naip_prefix}{name}.jpg', name)
+    i += 1
+```
+
+---
+```python
+# If multiple NAIPs, then mosaic to new raster and clip
+if len(naip_names) > 1:
+    arcpy.MosaicToNewRaster_management (naip_names, out_path, "temp", None, "8_BIT_UNSIGNED", None, 3)
+    arcpy.Clip_management ('temp', '#', f'{project}_naip', 'domain')
+else:
+    arcpy.Clip_management (naip_names[0], '#', f'{project}_naip', 'domain')
+arcpy.Delete_management (f'{out_directory}{project}\\{out_geodb}\\temp')    
+```
+
+---
+```python
+# Extract LAS points in buffer and colorize
+arcpy.ExtractLas_3d (las_dataset, f'{lidar_extract}', f'{point_name}_{buffer_distance}ft', "#", "#", "_extract", "#", "#", False, f'{lidar_extract}temp.lasd')
+arcpy.ColorizeLas_3d (f'{lidar_extract}temp.lasd', f'{project}_naip', 'RED Band_1; GREEN Band_2; BLUE Band_3', lidar_color, "_color", "#",  "#",  "#",  "#", True, f'{lidar_color}{project}_rgb.lasd')
+```
+
+---
+<a data-flickr-embed="true" href="https://www.flickr.com/photos/28640579@N02/46863938895/in/album-72157668647475382/" title="Twin Knobs Recreation Area"><img src="https://live.staticflickr.com/31337/46863938895_adf2708490_h.jpg" width="1600" height="900" alt="Twin Knobs Recreation Area"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
 ---?image=https://www.outragegis.com/weather/img/NewGap.jpg&opacity=80
 ### Thank you!
