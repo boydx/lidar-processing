@@ -16,9 +16,10 @@
 ### Processing and visualization techniques in 
 ## ArcGIS Pro
 
----?image=presentation/img/grid.gif&opacity=20
+---?image=https://outragegis.com/download/t/grid.gif&opacity=10
 
----?image=presentation/img/site.gif&opacity=20
+---?image=https://outragegis.com/download/t/site.gif&opacity=10
+
 
 ---
 ## Outline
