@@ -323,6 +323,9 @@ arcpy.Intersect_analysis ([f'{point_name}_{buffer_distance}ft', las_grid], "temp
 ---
 @[2]
 @[5]
+@[6-8]
+@[10]
+@[12]
 ```python
 # Find URLs and download them and use laszip64.exe to convert 
 cursor = arcpy.da.SearchCursor("temp", ['ftppath', 'LASVersion', 'Year'])
@@ -341,10 +344,14 @@ for row in cursor:
 ```
 
 ---
+@[2]
+@[4]
+@[5-8]
+@[9-10]
 ```python
 # Create LAS dataset
 arcpy.CreateLasDataset_management (las_names, las_dataset, "#", "#", spatial_reference, True, True)
-
+# Get Stats
 arcpy.LasDatasetStatistics_management (las_dataset, "#", f'{out_directory}{project}\\stats.csv', "#", "#", "#")
 with open(f'{out_directory}{project}\\stats.csv', encoding='utf-8') as csv:
     reader = pd.read_csv(csv)
@@ -355,10 +362,13 @@ pdData[pdData["Category"] == "ClassCodes"]
 ```
 
 ---
+@[2]
+@[4]
+@[5]
+@[6]
 ```python
 # default ground classes
 las_ground = [2]
-
 # Filter for ground points and create DEM and hillshade
 arcpy.MakeLasDatasetLayer_management (las_dataset, f'{lidar}ground', las_ground)
 arcpy.LasDatasetToRaster_conversion (f'{lidar}ground', f'{project}_dem_5ft', "#", "#", "#", "#", 5)
@@ -366,6 +376,9 @@ arcpy.HillShade_3d(f'{project}_dem_5ft', f'{project}_hillshade', 270, 55)
 ```
 
 ---
+@[2-3]
+@[5]
+@[14-16]
 ```python
 # Create a temp layer to find which NAIP files to download
 arcpy.RasterDomain_3d (f'{project}_hillshade', 'domain', 'POLYGON')
@@ -387,6 +400,7 @@ for row in cursor:
 ```
 
 ---
+@[1-4]
 ```python
 # If multiple NAIPs, then mosaic to new raster and clip
 if len(naip_names) > 1:
@@ -398,6 +412,8 @@ arcpy.Delete_management (f'{out_directory}{project}\\{out_geodb}\\temp')
 ```
 
 ---
+@[2]
+@[3]
 ```python
 # Extract LAS points in buffer and colorize
 arcpy.ExtractLas_3d (las_dataset, f'{lidar_extract}', f'{point_name}_{buffer_distance}ft', "#", "#", "_extract", "#", "#", False, f'{lidar_extract}temp.lasd')
