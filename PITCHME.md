@@ -16,6 +16,10 @@
 ### Processing and visualization techniques in 
 ## ArcGIS Pro
 
+---?image=presentation/img/grid.gif&opacity=20
+
+---?image=presentation/img/site.gif&opacity=20
+
 ---
 ## Outline
 @ul[squares]
