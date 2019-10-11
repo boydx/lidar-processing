@@ -1,12 +1,14 @@
 ---?image=presentation/img/st-b.svg
 <h3 style="color:rgba(255,255,255,0.2)">Presentation @</h3>
 ## boyd.xyz/k
-### [repo](https://github.com/boydx/lidar-processing) 
+### [repo](https://github.com/boydx/lidar-processing) | [contact](https://boydx.github.io)
 
 ---?image=presentation/img/pot.jpg&opacity=20
 ## Boyd Shearer 
 ### Lecturer, Mapping & GIS
 ([video](https://newmapsplus.as.uky.edu/video/introduction-new-maps-plus-0))
+
+---?image=presentation/img/outragegis.jpg
 
 ---?image=presentation/img/nmp-uky.png
 
@@ -62,8 +64,9 @@
 @ulend
 
 ---?image=https://live.staticflickr.com/930/41884170490_c18dec8542_o.jpg&opacity=30
-## Trees!
+### Trees!
 <iframe width="100%" height="500px" src="https://bluegrassland.carto.com/builder/50150569-e092-4c28-a67f-eb4bfbc7a50e/embed"></iframe>
+(link)[https://bluegrassland.carto.com/builder/50150569-e092-4c28-a67f-eb4bfbc7a50e/embed]
 
 
 ---
@@ -325,4 +328,4 @@ arcpy.ColorizeLas_3d (f'{lidar_extract}temp.lasd', f'{project}_naip', 'RED Band_
 <h3 style="color:rgba(255,255,255,0.2)">Presentation @</h3>
 ## boyd.xyz/k
 ## Thank you!
-### [repo](https://github.com/boydx/lidar-processing) 
+### [repo](https://github.com/boydx/lidar-processing) | [contact](https://boydx.github.io)
