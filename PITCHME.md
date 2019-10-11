@@ -3,12 +3,14 @@
 ## boyd.xyz/k
 ### [repo](https://github.com/boydx/lidar-processing) 
 
----?image=presentation/img/nmp-uky.png
-
 ---?image=presentation/img/pot.jpg&opacity=20
 ## Boyd Shearer 
 ### Lecturer, Mapping & GIS
 ([video](https://newmapsplus.as.uky.edu/video/introduction-new-maps-plus-0))
+
+---?image=presentation/img/nmp-uky.png
+
+
 
 
 ---?image=https://outrageGIS.com/gorge/animations/sun.gif&opacity=50
