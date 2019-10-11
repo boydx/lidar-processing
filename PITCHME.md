@@ -8,6 +8,10 @@
 ### Lecturer, Mapping & GIS
 ([video](https://newmapsplus.as.uky.edu/video/introduction-new-maps-plus-0))
 
+---
+### First time presenting
+### but not the first time at KAMP
+
 ---?image=presentation/img/outragegis.jpg
 
 ---?image=presentation/img/nmp-uky.png
