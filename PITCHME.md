@@ -3,12 +3,14 @@
 ## boyd.xyz/k
 ### [repo](https://github.com/boydx/lidar-processing) 
 
----?image=presentation/img/nmp-uky.png
-
 ---?image=presentation/img/pot.jpg&opacity=20
 ## Boyd Shearer 
 ### Lecturer, Mapping & GIS
 ([video](https://newmapsplus.as.uky.edu/video/introduction-new-maps-plus-0))
+
+---?image=presentation/img/nmp-uky.png
+
+
 
 
 ---?image=https://outrageGIS.com/gorge/animations/sun.gif&opacity=50
@@ -286,5 +288,41 @@ arcpy.ExtractLas_3d (las_dataset, f'{lidar_extract}', f'{point_name}_{buffer_dis
 arcpy.ColorizeLas_3d (f'{lidar_extract}temp.lasd', f'{project}_naip', 'RED Band_1; GREEN Band_2; BLUE Band_3', lidar_color, "_color", "#",  "#",  "#",  "#", True, f'{lidar_color}{project}_rgb.lasd')
 ```
 
----?image=https://www.outragegis.com/weather/img/NewGap.jpg&opacity=80
-### Thank you!
+---?image=presentation/img/animation.jpg
+## Now what?
+@ul[squares]
+* ### Animation!
+* ### YouTube!
+@ulend
+
+---?image=https://outrageGIS.com/download/t/cuga.gif
+
+---
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/nFV8ftGN0aM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+<iframe src="https://player.vimeo.com/video/301603400" width="100%" height="500" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+---
+## Future?
+@ul[squares]
+* Move processing outside of ArcGIS Pro?
+* E.g., colorizing point clouds not exclusive to Pro
+* Opens source libraries to visualize point clouds ([potree.org](https://potree.org))
+@ulend
+
+---
+<iframe src="https://outragegis.com/pointclouds/lex/" width="100%" height="500" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+---
+## Future??
+@ul[squares]
+* What should students learn in GIS?
+* To be competitive in the state?
+@ulend
+
+---?image=presentation/img/st-b.svg
+<h3 style="color:rgba(255,255,255,0.2)">Presentation @</h3>
+## boyd.xyz/k
+## Thank you!
+### [repo](https://github.com/boydx/lidar-processing) 
