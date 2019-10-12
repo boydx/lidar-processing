@@ -9,10 +9,14 @@
 ([video](https://newmapsplus.as.uky.edu/video/introduction-new-maps-plus-0))
 
 ---
-### First time presenting
-### but not the first time at KAMP
+### KAMP History
+@ul[squares]
+* Taught open-source workshops, 2015-2017
+* Hosted booth in early 2000s for outrageGIS mapping
+@ulend
 
----?image=presentation/img/outragegis.jpg
+---?image=presentation/img/outragegis.jpg&opacity=30
+## Let's Hike!
 
 ---?image=presentation/img/nmp-uky.png
 
@@ -25,14 +29,14 @@
 ## ArcGIS Pro
 
 ---
-# Challenge
+# Challenges
 
 ---?image=https://live.staticflickr.com/65535/47966455013_ba86c6e639_k.jpg&opacity=30
 ## Teaching
 @ul[squares]
 * [KyFromAbove](http://kyfromabove.ky.gov/) creates an amazing opportunity
-* Lidar and point clouds are future of GIS
-* But, how can students use it?
+* Lidar and point clouds => future of GIS
+* How can students use it?
 @ulend
 
 
@@ -47,21 +51,22 @@
 ---?image=https://outragegis.com/download/t/site.gif&opacity=20
 ## Which software?
 @ul[squares]
-* How to consume point clouds
-* Site license for ArcGIS Pro
-* 👍🍭🥳
-* 👹😠😩
-* Not here ☠, yet 
+* How to consume point clouds?
+* UKy has site license for ArcGIS Pro
+* 👍🍭🥳 Works great!
+* 👹😠😩 Sometimes it seems too slow
+* Pro, best opportunity for students
 @ulend
 
 ---
 # History
+First applications with lidar data
 
 
 ---?image=https://live.staticflickr.com/8560/29239711024_0a23da2985_k.jpg&opacity=30
 ## 2016
 @ul[squares]
-* Build point cloud for inside Lex's New Circle in ArcMap
+* Build point cloud inside New Circle in ArcMap
 * Extracted portions for student use
 * Illumination surface for [fall sunrise](https://flic.kr/p/LxPaoG)
 * Elevation profiles of [downtown pedways](https://www.flickr.com/photos/28640579@N02/29138854162/in/album-72157668647475382/)
@@ -70,14 +75,16 @@
 ---?image=https://live.staticflickr.com/930/41884170490_c18dec8542_o.jpg&opacity=30
 ### Trees!
 <iframe width="100%" height="500px" src="https://bluegrassland.carto.com/builder/50150569-e092-4c28-a67f-eb4bfbc7a50e/embed"></iframe>
-(link)[https://bluegrassland.carto.com/builder/50150569-e092-4c28-a67f-eb4bfbc7a50e/embed]
+[link](https://bluegrassland.carto.com/builder/50150569-e092-4c28-a67f-eb4bfbc7a50e/embed)
 
 
 ---
 ## Problem
 @ul[squares]
-* Students could not download, extract, and build dataset for areas they wanted to study
+* Though KyFromAbove makes it easy to find and download data,
+* students struggle to complete tool chain for multiple tiles.
 * Where did my data go?
+* Does a LAS dataset go in a GDB?
 * Why am I missing a tile?
 @ulend
 
@@ -128,6 +135,10 @@ point_name = "cp_pt" # Name of point layer
 buffer_distance = 1000 # Distance in feet from feature
 las_ground = [2] # Codes for elevation model
 ```
+
+---
+## Grid layers
+Use these well-attributed [grids](https://github.com/boydx/lidar-processing/blob/master/assets/download_grids.gdb.zip) to find the correct tiles to download.
 
 ---
 @[2]
