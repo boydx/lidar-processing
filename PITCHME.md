@@ -13,7 +13,7 @@
 ---
 ### KAMP History
 @ul[squares]
-* Taught open-source workshops, 2015-2017
+* Taught open source GIS workshops, 2015-2017
 * Hosted booth in early 2000s for outrageGIS mapping
 @ulend
 
