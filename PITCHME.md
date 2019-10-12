@@ -8,6 +8,8 @@
 ### Lecturer, Mapping & GIS
 ([video](https://newmapsplus.as.uky.edu/video/introduction-new-maps-plus-0))
 
+---?image=presentation/img/nmp-uky.png
+
 ---
 ### KAMP History
 @ul[squares]
@@ -17,10 +19,6 @@
 
 ---?image=presentation/img/outragegis.jpg&opacity=30
 ## Let's Hike!
-
----?image=presentation/img/nmp-uky.png
-
-
 
 
 ---?image=https://outrageGIS.com/gorge/animations/sun.gif&opacity=50
