@@ -1,6 +1,5 @@
----?image=presentation/img/st-b.svg
-<h3 style="color:rgba(255,255,255,0.2)">Presentation @</h3>
-## boyd.xyz/k
+---?image=https://www.outragegis.com/weather/img/animation/yesterday/LookRock.gif
+## Lidar + Python + ArcGIS
 ### [repo](https://github.com/boydx/lidar-processing) | [contact](https://boydx.github.io)
 
 ---?image=presentation/img/pot.jpg&opacity=20
@@ -11,10 +10,14 @@
 ---?image=presentation/img/nmp-uky.png
 
 ---
-### KAMP History
+### Mapping & GIS Minor
 @ul[squares]
-* Taught open source GIS workshops, 2015-2017
-* Hosted booth in early 2000s for outrageGIS mapping
+* GEO 109 - Digital Mapping
+* GEO 309 - Intro to GIS
+* GEO 409 - Advanced GIS
+* GEO 305 - Cartography
+* GEO 419 - Remote Sensing
+* GEO 509 - Workshop
 @ulend
 
 ---?image=presentation/img/outragegis.jpg&opacity=30
