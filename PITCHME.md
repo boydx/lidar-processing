@@ -22,42 +22,13 @@
 
 ---?image=presentation/img/outragegis.jpg&opacity=30
 ## Let's Hike!
+[outrageGIS.com](https://outrageGIS.com)
 
 
 ---?image=https://outrageGIS.com/gorge/animations/sun.gif&opacity=50
 # Lidar
 ### Processing & visualization with Python and
 ## ArcGIS Pro
-
----
-# Challenges
-
----?image=https://live.staticflickr.com/65535/47966455013_ba86c6e639_k.jpg&opacity=30
-## Teaching
-@ul[squares]
-* [KyFromAbove](http://kyfromabove.ky.gov/) creates an amazing opportunity
-* Lidar and point clouds => future of GIS
-* How can students use it?
-@ulend
-
-
----?image=https://outragegis.com/download/t/grid.gif&opacity=20
-## Massive data
-@ul[squares]
-* Lidar downloaded in 5k-foot square tiles
-* Some extract >500 MB
-* A lot of data to juggle
-@ulend
-
----?image=https://outragegis.com/download/t/site.gif&opacity=20
-## Which software?
-@ul[squares]
-* How to consume point clouds?
-* UKy has site license for ArcGIS Pro
-* 👍🍭🥳 Works great!
-* 👹😠😩 Sometimes it seems too slow
-* Pro, best opportunity for students
-@ulend
 
 ---
 # History
@@ -79,26 +50,13 @@ First applications with lidar data
 [link](https://bluegrassland.carto.com/builder/50150569-e092-4c28-a67f-eb4bfbc7a50e/embed)
 
 
+---?image=https://live.staticflickr.com/930/41884170490_c18dec8542_o.jpg&opacity=30
+### Trees!
+<iframe width="100%" height="500px" src="https://outragegis.com/pointclouds/legacy/"></iframe>
+[link](https://outragegis.com/pointclouds/legacy/)
 ---
-## Problem
-@ul[squares]
-* Though KyFromAbove makes it easy to find and download data,
-* students struggle to complete tool chain for multiple tiles.
-* Where did my data go?
-* Does a LAS dataset go in a GDB?
-* Why am I missing a tile?
-@ulend
 
----
-## Solution
-@ul[squares]
-* Programmatically download, extract, and build
-* Enter Python
-* 😘 ESRI's documentation
-* More time for visualization
-@ulend
 
----
 # Code    
 # [Demo](https://github.com/boydx/lidar-processing)
 
@@ -325,23 +283,10 @@ arcpy.ColorizeLas_3d (f'{lidar_extract}temp.lasd', f'{project}_naip', 'RED Band_
 ---?image=presentation/img/geo409.jpg
 ### [Link](https://uky-gis.github.io/maps/rrg-arches/)
 
----
-## Future?
-@ul[squares]
-* Move processing outside of ArcGIS Pro?
-* E.g., colorizing point clouds not exclusive to Pro
-* Opens source libraries to visualize point clouds ([potree.org](https://potree.org))
-@ulend
 
 ---
 <iframe src="https://outragegis.com/pointclouds/lex/" width="100%" height="500" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
----
-## Future??
-@ul[squares]
-* What should students learn in GIS?
-* To be competitive in the state?
-@ulend
 
 ---?image=presentation/img/st-b.svg
 <h3 style="color:rgba(255,255,255,0.2)">Presentation @</h3>
