@@ -1,6 +1,6 @@
 ---?image=https://www.outragegis.com/weather/img/animation/yesterday/LookRock.gif
 ## Lidar + Python + ArcGIS
-### [repo](https://github.com/boydx/lidar-processing) | [contact](https://boydx.github.io)
+### [repo](https://github.com/boydx/lidar-processing) | [contact](https://geography.as.uky.edu/users/blshea1)
 
 ---?image=presentation/img/pot.jpg&opacity=20
 ## Boyd Shearer 
@@ -290,6 +290,6 @@ arcpy.ColorizeLas_3d (f'{lidar_extract}temp.lasd', f'{project}_naip', 'RED Band_
 
 ---?image=presentation/img/st-b.svg
 <h3 style="color:rgba(255,255,255,0.2)">Presentation @</h3>
-## boyd.xyz/k
-## Thank you!
-### [repo](https://github.com/boydx/lidar-processing) | [contact](https://boydx.github.io)
+### [gitpitch.com/boydx/lidar-processing/FOR330](https://gitpitch.com/boydx/lidar-processing/FOR330)
+### Thank you!
+### [repo](https://github.com/boydx/lidar-processing) | [contact](https://geography.as.uky.edu/users/blshea1)
